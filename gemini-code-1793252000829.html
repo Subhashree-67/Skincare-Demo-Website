@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELŌRA SKIN — Rituals That Return You To Yourself</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        warmIvory: '#F6F2EA',
+                        porcelain: '#FFFCF7',
+                        botanicalSage: '#A7AF91',
+                        deepForest: '#263B2E',
+                        champagneGold: '#BBA77C',
+                        mutedClay: '#C98F78',
+                        softCharcoal: '#242720',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #F6F2EA;
+            color: #242720;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .bg-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F6F2EA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A7AF91;
+            border-radius: 3px;
+        }
+
+        #intro-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: #F6F2EA;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #intro-overlay.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .hover-underline {
+            position: relative;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .hover-underline:hover::after {
+            width: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-warmIvory text-softCharcoal bg-grain antialiased selection:bg-botanicalSage selection:text-porcelain">
+
+    <!-- CINEMATIC INTRO -->
+    <div id="intro-overlay">
+        <div class="text-center px-4">
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl tracking-[0.25em] text-deepForest mb-4 opacity-0 transition-opacity duration-700" id="intro-logo">VELŌRA</h1>
+            <div class="w-0 h-[1px] bg-champagneGold mx-auto transition-all duration-700" id="intro-line"></div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-deepForest/70 mt-3 opacity-0 transition-opacity duration-700 delay-300" id="intro-tag">Rituals that return you to yourself.</p>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION BANNER -->
+    <div class="bg-deepForest text-porcelain text-[10px] sm:text-xs tracking-widest text-center py-2 px-4 uppercase font-sans">
+        Portfolio Concept Demo — Fictional Brand Presentation by Sites by Subho
+    </div>
+
+    <!-- NAVIGATION -->
+    <header id="site-header" class="sticky top-0 z-40 transition-all duration-300 bg-warmIvory/90 backdrop-blur-md border-b border-deepForest/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <button id="mobile-menu-btn" class="md:hidden text-deepForest focus:outline-none p-2" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm tracking-wider uppercase font-medium text-deepForest">
+                <a href="#shop" class="hover-underline py-2">Shop</a>
+                <a href="#philosophy" class="hover-underline py-2">Philosophy</a>
+                <a href="#ingredients" class="hover-underline py-2">Ingredients</a>
+                <a href="#ritual-finder" class="hover-underline py-2">Ritual Finder</a>
+            </nav>
+
+            <a href="#" class="text-center group">
+                <span class="font-serif text-2xl md:text-3xl tracking-[0.2em] text-deepForest block">VELŌRA</span>
+                <span class="text-[9px] uppercase tracking-[0.4em] text-deepForest/70 block -mt-1">SKIN</span>
+            </a>
+
+            <div class="flex items-center space-x-4">
+                <button id="cart-btn" class="relative text-deepForest flex items-center space-x-2 py-2 focus:outline-none group" aria-label="Open Cart">
+                    <span class="text-xs uppercase tracking-widest hidden md:inline group-hover:opacity-70 transition-opacity">Cart</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <span id="cart-count" class="absolute -top-1 -right-2 bg-champagneGold text-porcelain text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed inset-x-0 top-20 bg-warmIvory border-b border-deepForest/10 shadow-xl transform -translate-y-full transition-transform duration-300 md:hidden flex flex-col p-6 space-y-4">
+            <a href="#shop" class="mobile-link text-lg font-serif text-deepForest py-2 border-b border-deepForest/10">Shop</a>
+            <a href="#philosophy" class="mobile-link text-lg font-serif text-deepForest py-2 border-b border-deepForest/10">Philosophy</a>
+            <a href="#ingredients" class="mobile-link text-lg font-serif text-deepForest py-2 border-b border-deepForest/10">Ingredients</a>
+            <a href="#ritual-finder" class="mobile-link text-lg font-serif text-deepForest py-2">Ritual Finder</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 sm:px-6 py-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+                <span class="inline-block text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-botanicalSage font-semibold px-3 py-1 bg-deepForest/5 rounded-full">
+                    Botanical Skin Science / Est. Concept
+                </span>
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl text-deepForest leading-[1.08] tracking-tight">
+                    Your skin.<br>
+                    <span class="italic font-light">A softer kind of science.</span>
+                </h1>
+                <p class="text-sm sm:text-base lg:text-lg text-softCharcoal/80 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Thoughtfully imagined skincare inspired by botanical ingredients, daily rituals, and the beauty of doing less—but doing it well.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-5 pt-2">
+                    <a href="#shop" class="w-full sm:w-auto px-8 py-4 bg-deepForest text-porcelain text-xs uppercase tracking-[0.25em] font-medium transition-all duration-300 hover:bg-deepForest/90 hover:shadow-lg text-center">
+                        Explore The Ritual
+                    </a>
+                    <a href="#philosophy" class="w-full sm:w-auto px-8 py-4 border border-deepForest/30 text-deepForest text-xs uppercase tracking-[0.25em] font-medium transition-all duration-300 hover:bg-deepForest/5 text-center">
+                        Discover Our Philosophy
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-botanicalSage/30 to-deepForest/20 border border-champagneGold/30 flex items-center justify-center">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-deepForest/40 select-none pointer-events-none">
+                        <span class="font-serif text-3xl sm:text-4xl tracking-widest text-deepForest/20 mb-2">VELŌRA</span>
+                        <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.3em]">Botanical Serum Concept</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1608248597359-f57abac6f03c?auto=format&fit=crop&q=80&w=1000" alt="Velōra Skin Serum Bottle" class="relative z-10 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepForest/40 via-transparent to-transparent z-20 pointer-events-none"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-porcelain z-30">
+                        <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-champagneGold block mb-1">Featured Formula</span>
+                        <p class="font-serif text-lg sm:text-xl">Dew Theory Hydration Serum</p>
+                    </div>
+                </div>
+                <div class="absolute -right-8 top-1/2 -translate-y-1/2 rotate-90 hidden xl:block text-[10px] uppercase tracking-[0.4em] text-deepForest/50">
+                    Pure Botanical Extraction • 50ml
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDITORIAL BRAND STORY -->
+    <section id="philosophy" class="py-20 sm:py-24 bg-deepForest text-porcelain relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <div class="lg:col-span-6 space-y-6 sm:space-y-8">
+                    <span class="text-xs uppercase tracking-[0.3em] text-champagneGold block">Our Philosophy</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl leading-[1.15] text-porcelain">
+                        Care isn't about becoming someone else.<br>
+                        <span class="italic font-light text-botanicalSage">It's about returning to yourself.</span>
+                    </h2>
+                    <p class="text-porcelain/80 font-light leading-relaxed text-sm sm:text-base lg:text-lg">
+                        In a world obsessed with hyper-correction and endless regimens, Velōra offers a sanctuary of calm. We formulate with uncompromising respect for your skin barrier, pairing time-honored botanical extracts with intelligent modern science.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 sm:gap-8 pt-6 border-t border-porcelain/10">
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl text-champagneGold mb-1">100%</h3>
+                            <p class="text-[10px] sm:text-xs uppercase tracking-wider text-porcelain/70">Vegan & Cruelty-Free Concepts</p>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl text-champagneGold mb-1">Zero</h3>
+                            <p class="text-[10px] sm:text-xs uppercase tracking-wider text-porcelain/70">Synthetic Fragrance or Parabens</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 relative">
+                    <div class="aspect-[3/4] rounded-xl overflow-hidden border border-champagneGold/30 bg-warmIvory/10 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000" alt="Botanical Ingredients" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT COLLECTION SECTION -->
+    <section id="shop" class="py-20 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-deepForest/70 block">The Curated Collection</span>
+            <h2 class="font-serif text-3xl sm:text-5xl text-deepForest">Essential Rituals</h2>
+            <p class="text-softCharcoal/80 text-xs sm:text-base">Designed to harmonize with your skin's natural rhythm. Fictional concept formulations for portfolio presentation.</p>
+            
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 pt-4">
+                <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs uppercase tracking-wider transition-all bg-deepForest text-porcelain" data-filter="all">All Rituals</button>
+                <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs uppercase tracking-wider transition-all bg-deepForest/5 text-deepForest hover:bg-deepForest/10" data-filter="cleanse">Cleanse</button>
+                <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs uppercase tracking-wider transition-all bg-deepForest/5 text-deepForest hover:bg-deepForest/10" data-filter="hydrate">Hydrate</button>
+                <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs uppercase tracking-wider transition-all bg-deepForest/5 text-deepForest hover:bg-deepForest/10" data-filter="moisturize">Moisturize</button>
+            </div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <!-- Product A -->
+            <div class="product-card group bg-porcelain rounded-xl overflow-hidden border border-deepForest/10 flex flex-col justify-between transition-all duration-300 hover:shadow-xl" data-category="cleanse">
+                <div class="relative aspect-[4/5] overflow-hidden bg-warmIvory flex items-center justify-center">
+                    <span class="absolute text-[11px] text-deepForest/40 uppercase tracking-widest">VELŌRA CLEANSE</span>
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800" alt="First Light Cleanser" class="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+                    <span class="absolute top-3 left-3 z-20 bg-deepForest text-porcelain text-[9px] uppercase tracking-widest px-2.5 py-1 rounded">The Daily Essential</span>
+                    <button class="quick-view-btn absolute bottom-3 right-3 z-20 bg-porcelain/90 text-deepForest text-[10px] uppercase tracking-wider px-3 py-1.5 rounded opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" data-id="a">Quick View</button>
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-botanicalSage block mb-1">Cleanse • 150ml</span>
+                        <h3 class="font-serif text-xl text-deepForest mb-2">FIRST LIGHT</h3>
+                        <p class="text-xs text-softCharcoal/70 line-clamp-2">A gentle daily cleansing ritual that purifies without disturbing your natural lipid barrier.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 sm:pt-6 mt-4 border-t border-deepForest/10">
+                        <span class="font-serif text-lg text-deepForest">₹899</span>
+                        <button class="add-to-cart-btn px-4 py-2 bg-deepForest text-porcelain text-[10px] uppercase tracking-widest hover:bg-deepForest/80 transition-colors" data-id="a" data-name="FIRST LIGHT" data-price="899" data-img="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product B -->
+            <div class="product-card group bg-porcelain rounded-xl overflow-hidden border border-deepForest/10 flex flex-col justify-between transition-all duration-300 hover:shadow-xl" data-category="hydrate">
+                <div class="relative aspect-[4/5] overflow-hidden bg-warmIvory flex items-center justify-center">
+                    <span class="absolute text-[11px] text-deepForest/40 uppercase tracking-widest">VELŌRA HYDRATE</span>
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800" alt="Dew Theory Serum" class="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+                    <span class="absolute top-3 left-3 z-20 bg-champagneGold text-porcelain text-[9px] uppercase tracking-widest px-2.5 py-1 rounded">Award Concept</span>
+                    <button class="quick-view-btn absolute bottom-3 right-3 z-20 bg-porcelain/90 text-deepForest text-[10px] uppercase tracking-wider px-3 py-1.5 rounded opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" data-id="b">Quick View</button>
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-botanicalSage block mb-1">Hydrate • 50ml</span>
+                        <h3 class="font-serif text-xl text-deepForest mb-2">DEW THEORY</h3>
+                        <p class="text-xs text-softCharcoal/70 line-clamp-2">A lightweight hydration-focused serum infused with multi-weight botanical hyaluronic acid alternatives.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 sm:pt-6 mt-4 border-t border-deepForest/10">
+                        <span class="font-serif text-lg text-deepForest">₹1,299</span>
+                        <button class="add-to-cart-btn px-4 py-2 bg-deepForest text-porcelain text-[10px] uppercase tracking-widest hover:bg-deepForest/80 transition-colors" data-id="b" data-name="DEW THEORY" data-price="1299" data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product C -->
+            <div class="product-card group bg-porcelain rounded-xl overflow-hidden border border-deepForest/10 flex flex-col justify-between transition-all duration-300 hover:shadow-xl" data-category="moisturize">
+                <div class="relative aspect-[4/5] overflow-hidden bg-warmIvory flex items-center justify-center">
+                    <span class="absolute text-[11px] text-deepForest/40 uppercase tracking-widest">VELŌRA MOISTURE</span>
+                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&q=80&w=800" alt="Stillwater Moisturizer" class="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+                    <span class="absolute top-3 left-3 z-20 bg-deepForest text-porcelain text-[9px] uppercase tracking-widest px-2.5 py-1 rounded">Barrier Care</span>
+                    <button class="quick-view-btn absolute bottom-3 right-3 z-20 bg-porcelain/90 text-deepForest text-[10px] uppercase tracking-wider px-3 py-1.5 rounded opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" data-id="c">Quick View</button>
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-botanicalSage block mb-1">Moisturize • 60ml</span>
+                        <h3 class="font-serif text-xl text-deepForest mb-2">STILLWATER</h3>
+                        <p class="text-xs text-softCharcoal/70 line-clamp-2">A daily moisturizer designed around skin comfort, featuring calming squalane and centella.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 sm:pt-6 mt-4 border-t border-deepForest/10">
+                        <span class="font-serif text-lg text-deepForest">₹1,099</span>
+                        <button class="add-to-cart-btn px-4 py-2 bg-deepForest text-porcelain text-[10px] uppercase tracking-widest hover:bg-deepForest/80 transition-colors" data-id="c" data-name="STILLWATER" data-price="1099" data-img="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&q=80&w=800">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product D -->
+            <div class="product-card group bg-porcelain rounded-xl overflow-hidden border border-deepForest/10 flex flex-col justify-between transition-all duration-300 hover:shadow-xl" data-category="moisturize">
+                <div class="relative aspect-[4/5] overflow-hidden bg-warmIvory flex items-center justify-center">
+                    <span class="absolute text-[11px] text-deepForest/40 uppercase tracking-widest">VELŌRA NOURISH</span>
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=800" alt="Night Garden Cream" class="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+                    <span class="absolute top-3 left-3 z-20 bg-champagneGold text-porcelain text-[9px] uppercase tracking-widest px-2.5 py-1 rounded">Night Ritual</span>
+                    <button class="quick-view-btn absolute bottom-3 right-3 z-20 bg-porcelain/90 text-deepForest text-[10px] uppercase tracking-wider px-3 py-1.5 rounded opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" data-id="d">Quick View</button>
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-botanicalSage block mb-1">Nourish • 60ml</span>
+                        <h3 class="font-serif text-xl text-deepForest mb-2">NIGHT GARDEN</h3>
+                        <p class="text-xs text-softCharcoal/70 line-clamp-2">A rich, nourishing evening skincare ritual that seals in moisture while you rest.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 sm:pt-6 mt-4 border-t border-deepForest/10">
+                        <span class="font-serif text-lg text-deepForest">₹1,499</span>
+                        <button class="add-to-cart-btn px-4 py-2 bg-deepForest text-porcelain text-[10px] uppercase tracking-widest hover:bg-deepForest/80 transition-colors" data-id="d" data-name="NIGHT GARDEN" data-price="1499" data-img="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=800">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTANICAL INGREDIENTS SECTION -->
+    <section id="ingredients" class="py-20 sm:py-24 bg-porcelain border-y border-deepForest/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-deepForest/70 block">Botanical Science</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-deepForest">Core Ingredients</h2>
+                <p class="text-softCharcoal/80 text-xs sm:text-sm">Every concept formulation is anchored in time-tested botanicals known for biocompatibility and gentle efficacy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <div class="p-6 sm:p-8 bg-warmIvory rounded-xl border border-deepForest/10 space-y-3 hover:border-champagneGold transition-colors">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-botanicalSage block">01 / Soothe</span>
+                    <h3 class="font-serif text-xl sm:text-2xl text-deepForest">Centella Asiatica</h3>
+                    <p class="text-xs text-softCharcoal/80 leading-relaxed">A legendary botanical known for calming sensitivity, reducing visible redness, and supporting skin recovery.</p>
+                </div>
+                <div class="p-6 sm:p-8 bg-warmIvory rounded-xl border border-deepForest/10 space-y-3 hover:border-champagneGold transition-colors">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-botanicalSage block">02 / Protect</span>
+                    <h3 class="font-serif text-xl sm:text-2xl text-deepForest">Green Tea Extract</h3>
+                    <p class="text-xs text-softCharcoal/80 leading-relaxed">Rich in potent polyphenols that defend against everyday environmental stressors and oxidative fatigue.</p>
+                </div>
+                <div class="p-6 sm:p-8 bg-warmIvory rounded-xl border border-deepForest/10 space-y-3 hover:border-champagneGold transition-colors">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-botanicalSage block">03 / Comfort</span>
+                    <h3 class="font-serif text-xl sm:text-2xl text-deepForest">Colloidal Oat</h3>
+                    <p class="text-xs text-softCharcoal/80 leading-relaxed">A comforting, time-honored ingredient that wraps stressed skin in a soothing, moisture-locking embrace.</p>
+                </div>
+                <div class="p-6 sm:p-8 bg-warmIvory rounded-xl border border-deepForest/10 space-y-3 hover:border-champagneGold transition-colors">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-botanicalSage block">04 / Replenish</span>
+                    <h3 class="font-serif text-xl sm:text-2xl text-deepForest">Plant Squalane</h3>
+                    <p class="text-xs text-softCharcoal/80 leading-relaxed">A weightless, biocompatible oil that mimics your skin's natural sebum to restore instant suppleness.</p>
+                </div>
+            </div>
+
+            <p class="text-center text-[10px] sm:text-[11px] text-softCharcoal/60 mt-10 sm:mt-12 uppercase tracking-widest px-4">
+                Ingredient information is educational. Formulations and suitability depend on finished product synergy.
+            </p>
+        </div>
+    </section>
+
+    <!-- RITUAL FINDER QUESTIONNAIRE SECTION -->
+    <section id="ritual-finder" class="py-20 sm:py-24 px-4 sm:px-6 max-w-4xl mx-auto">
+        <div class="bg-deepForest text-porcelain p-6 sm:p-12 rounded-2xl relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-botanicalSage/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div id="quiz-container" class="space-y-6 sm:space-y-8 relative z-10">
+                <div class="text-center space-y-2 sm:space-y-3">
+                    <span class="text-xs uppercase tracking-[0.3em] text-champagneGold block">Interactive Guide</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl text-porcelain">Find Your Personal Ritual</h2>
+                    <p class="text-porcelain/70 text-xs sm:text-sm">Answer three quick questions to discover a tailored concept routine.</p>
+                </div>
+
+                <div id="quiz-step-1" class="quiz-step space-y-4 sm:space-y-6">
+                    <p class="font-serif text-lg sm:text-xl text-center text-champagneGold">1. What is your primary skin focus right now?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto">
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-left transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="focus" data-value="Hydration">Hydration & Suppleness</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-left transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="focus" data-value="Gentle Cleansing">Gentle Cleansing & Purity</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-left transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="focus" data-value="Barrier Moisture">Moisturizing & Barrier Care</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-left transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="focus" data-value="Simplicity">Keeping Things Minimal</button>
+                    </div>
+                </div>
+
+                <div id="quiz-step-2" class="quiz-step space-y-4 sm:space-y-6 hidden">
+                    <p class="font-serif text-lg sm:text-xl text-center text-champagneGold">2. How many steps do you prefer in your daily ritual?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl mx-auto">
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-center transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="steps" data-value="Two steps">Two Steps</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-center transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="steps" data-value="Three steps">Three Steps</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-center transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="steps" data-value="Four steps">Four Steps</button>
+                    </div>
+                </div>
+
+                <div id="quiz-step-3" class="quiz-step space-y-4 sm:space-y-6 hidden">
+                    <p class="font-serif text-lg sm:text-xl text-center text-champagneGold">3. When do you practice your primary routine?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl mx-auto">
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-center transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="timing" data-value="Morning">Morning</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-center transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="timing" data-value="Evening">Evening</button>
+                        <button class="quiz-option p-3.5 sm:p-4 rounded-xl border border-porcelain/25 hover:border-champagneGold text-center transition-all text-xs sm:text-sm uppercase tracking-wider" data-question="timing" data-value="Both">Both Morning & Evening</button>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="space-y-6 hidden text-center">
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-[0.3em] text-botanicalSage">Your Recommended Concept Ritual</span>
+                        <h3 id="result-title" class="font-serif text-2xl sm:text-3xl text-champagneGold">The Balanced Botanical Routine</h3>
+                    </div>
+                    <p id="result-desc" class="text-porcelain/80 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+                        Based on your preference for gentle care, we recommend starting with FIRST LIGHT Cleanser followed by STILLWATER Barrier Moisturizer.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-2">
+                        <button id="restart-quiz-btn" class="px-6 py-3 border border-porcelain/30 text-porcelain text-xs uppercase tracking-widest hover:bg-porcelain/10 transition-colors">Start Over</button>
+                        <button id="ask-guide-about-quiz" class="px-6 py-3 bg-champagneGold text-deepForest text-xs uppercase tracking-widest font-semibold hover:bg-champagneGold/90 transition-colors">Discuss With Ritual Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-deepForest text-porcelain pt-16 sm:pt-20 pb-10 sm:pb-12 border-t border-porcelain/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 pb-12 sm:pb-16 border-b border-porcelain/10">
+            <div class="md:col-span-4 space-y-4">
+                <span class="font-serif text-2xl tracking-[0.2em] block">VELŌRA</span>
+                <p class="text-xs uppercase tracking-[0.3em] text-champagneGold">SKIN</p>
+                <p class="text-xs text-porcelain/70 max-w-sm font-light leading-relaxed">
+                    Rituals that return you to yourself. Thoughtfully designed skincare concepts created for portfolio presentation by Sites by Subho.
+                </p>
+            </div>
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs uppercase tracking-[0.3em] text-champagneGold font-semibold">Explore</h4>
+                <ul class="space-y-2 text-xs text-porcelain/80">
+                    <li><a href="#shop" class="hover-underline">Shop Rituals</a></li>
+                    <li><a href="#philosophy" class="hover-underline">Our Philosophy</a></li>
+                    <li><a href="#ingredients" class="hover-underline">Ingredients</a></li>
+                    <li><a href="#ritual-finder" class="hover-underline">Ritual Finder</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-xs uppercase tracking-[0.3em] text-champagneGold font-semibold">Concept Note</h4>
+                <p class="text-xs text-porcelain/70 font-light leading-relaxed">
+                    All products, pricing, and brand statements shown are fictional design concepts. No real ecommerce transactions or clinical claims are made.
+                </p>
+            </div>
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-xs uppercase tracking-[0.3em] text-champagneGold font-semibold">Designer Portfolio</h4>
+                <p class="text-xs text-porcelain/70 font-light">
+                    Sites by Subho<br>
+                    Crafted with vanilla HTML, Tailwind CSS, and JavaScript.
+                </p>
+                <a href="#" class="inline-block text-xs uppercase tracking-widest text-champagneGold hover-underline pt-2">Back to Top ↑</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] uppercase tracking-widest text-porcelain/50 space-y-2 sm:space-y-0 text-center sm:text-left">
+            <p>© 2026 VELŌRA SKIN CONCEPT. ALL RIGHTS RESERVED.</p>
+            <p>DESIGNED BY SITES BY SUBHO</p>
+        </div>
+    </footer>
+
+    <!-- MINI-CART DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div id="cart-backdrop" class="absolute inset-0 bg-deepForest/60 backdrop-blur-sm transition-opacity opacity-0"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
+            <div id="cart-panel" class="w-screen max-w-md bg-warmIvory shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+                <div class="p-5 sm:p-6 border-b border-deepForest/10 flex items-center justify-between">
+                    <h3 class="font-serif text-xl sm:text-2xl text-deepForest">Your Ritual Cart</h3>
+                    <button id="close-cart-btn" class="text-deepForest p-2 hover:opacity-70 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-4 sm:space-y-6"></div>
+                <div class="p-5 sm:p-6 border-t border-deepForest/10 bg-porcelain space-y-3 sm:space-y-4">
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-softCharcoal/70 uppercase tracking-widest text-xs">Subtotal</span>
+                        <span id="cart-subtotal" class="font-serif text-xl text-deepForest">₹0</span>
+                    </div>
+                    <p class="text-[10px] text-softCharcoal/60 uppercase tracking-wider text-center">Fictional portfolio demo — checkout is disabled.</p>
+                    <button id="checkout-demo-btn" class="w-full py-3.5 sm:py-4 bg-deepForest text-porcelain text-xs uppercase tracking-[0.25em] font-medium hover:bg-deepForest/90 transition-colors">
+                        Proceed to Demo Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quick-view-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true">
+        <div id="modal-backdrop" class="absolute inset-0 bg-deepForest/60 backdrop-blur-sm opacity-0 transition-opacity"></div>
+        <div id="modal-panel" class="bg-porcelain rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative z-10 transform scale-95 opacity-0 transition-all duration-300 grid grid-cols-1 sm:grid-cols-2 max-h-[90vh] overflow-y-auto">
+            <div class="relative aspect-square sm:aspect-auto bg-warmIvory flex items-center justify-center">
+                <img id="modal-img" src="" alt="" class="w-full h-full object-cover" onerror="this.style.display='none'">
+            </div>
+            <div class="p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span id="modal-category" class="text-[10px] uppercase tracking-[0.3em] text-botanicalSage">Category</span>
+                        <button id="close-modal-btn" class="text-deepForest hover:opacity-70 focus:outline-none">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+                    <h3 id="modal-name" class="font-serif text-2xl sm:text-3xl text-deepForest">Product Name</h3>
+                    <span id="modal-price" class="font-serif text-lg sm:text-xl text-deepForest block">₹0</span>
+                    <p id="modal-desc" class="text-xs text-softCharcoal/80 leading-relaxed">Description goes here.</p>
+                </div>
+                <button id="modal-add-btn" class="w-full py-3.5 bg-deepForest text-porcelain text-xs uppercase tracking-[0.25em] font-medium hover:bg-deepForest/90 transition-colors">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RITUAL GUIDE (CHATBOT) WIDGET -->
+    <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
+        <button id="chatbot-toggle-btn" class="bg-deepForest text-porcelain p-3.5 sm:p-4 rounded-full shadow-2xl hover:bg-deepForest/90 transition-all flex items-center justify-center group focus:outline-none" aria-label="Open Ritual Guide">
+            <svg class="w-6 h-6 text-champagneGold group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+
+        <div id="chatbot-panel" class="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-[380px] max-w-[380px] bg-porcelain rounded-2xl shadow-2xl border border-deepForest/10 overflow-hidden hidden flex flex-col h-[460px] sm:h-[500px] transform translate-y-4 opacity-0 transition-all duration-300">
+            <div class="bg-deepForest text-porcelain p-3.5 sm:p-4 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-3 h-3 rounded-full bg-champagneGold animate-pulse"></div>
+                    <div>
+                        <h4 class="font-serif text-base sm:text-lg">Ritual Guide</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-porcelain/70">Concept Assistant</span>
+                    </div>
+                </div>
+                <button id="chatbot-close-btn" class="text-porcelain hover:opacity-70 focus:outline-none p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div id="chatbot-messages" class="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-3 sm:space-y-4 bg-warmIvory/50 text-xs">
+                <div class="flex flex-col space-y-1">
+                    <div class="bg-porcelain border border-deepForest/10 p-3 rounded-xl rounded-tl-none max-w-[85%] text-softCharcoal leading-relaxed">
+                        Hello, I'm your Ritual Guide. Let's find a simple skincare routine that feels right for you.
+                    </div>
+                    <span class="text-[9px] text-softCharcoal/50 ml-1">Just now</span>
+                </div>
+            </div>
+
+            <div id="chatbot-suggestions" class="p-2 bg-warmIvory border-t border-deepForest/10 flex flex-wrap gap-1.5 overflow-x-auto">
+                <button class="suggestion-chip bg-porcelain border border-deepForest/20 text-deepForest px-2.5 py-1 rounded-full text-[10px] hover:bg-deepForest hover:text-porcelain transition-colors">Help me build a simple routine</button>
+                <button class="suggestion-chip bg-porcelain border border-deepForest/20 text-deepForest px-2.5 py-1 rounded-full text-[10px] hover:bg-deepForest hover:text-porcelain transition-colors">My skin feels dry</button>
+                <button class="suggestion-chip bg-porcelain border border-deepForest/20 text-deepForest px-2.5 py-1 rounded-full text-[10px] hover:bg-deepForest hover:text-porcelain transition-colors">My skin gets oily</button>
+                <button class="suggestion-chip bg-porcelain border border-deepForest/20 text-deepForest px-2.5 py-1 rounded-full text-[10px] hover:bg-deepForest hover:text-porcelain transition-colors">How do I layer products?</button>
+            </div>
+
+            <form id="chatbot-form" class="p-2.5 sm:p-3 bg-porcelain border-t border-deepForest/10 flex items-center space-x-2">
+                <input type="text" id="chatbot-input" placeholder="Ask about routines, skin types..." class="flex-1 bg-warmIvory border border-deepForest/10 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-champagneGold">
+                <button type="submit" class="bg-deepForest text-porcelain p-2 rounded-lg hover:bg-deepForest/80 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+            </form>
+
+            <div class="bg-deepForest/5 px-3 py-1.5 text-[8px] text-softCharcoal/70 text-center uppercase tracking-wider border-t border-deepForest/5">
+                Educational guide only • Fictional concept products
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const introOverlay = document.getElementById('intro-overlay');
+            const introLogo = document.getElementById('intro-logo');
+            const introLine = document.getElementById('intro-line');
+            const introTag = document.getElementById('intro-tag');
+
+            setTimeout(() => {
+                introLogo.classList.remove('opacity-0');
+                introLine.classList.remove('w-0');
+                introLine.classList.add('w-32');
+                introTag.classList.remove('opacity-0');
+            }, 150);
+
+            setTimeout(() => {
+                introOverlay.classList.add('fade-out');
+            }, 1200);
+
+            const header = document.getElementById('site-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    header.classList.add('shadow-md', 'bg-warmIvory');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            });
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('-translate-y-full');
+                mobileMenu.classList.toggle('translate-y-0');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('-translate-y-full');
+                    mobileMenu.classList.remove('translate-y-0');
+                });
+            });
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-deepForest', 'text-porcelain');
+                        b.classList.add('bg-deepForest/5', 'text-deepForest');
+                    });
+                    btn.classList.remove('bg-deepForest/5', 'text-deepForest');
+                    btn.classList.add('bg-deepForest', 'text-porcelain');
+
+                    const filterValue = btn.getAttribute('data-filter');
+                    productCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            let cart = JSON.parse(localStorage.getItem('velora_cart')) || [];
+            
+            const cartBtn = document.getElementById('cart-btn');
+            const cartDrawer = document.getElementById('cart-drawer');
+            const cartBackdrop = document.getElementById('cart-backdrop');
+            const cartPanel = document.getElementById('cart-panel');
+            const closeCartBtn = document.getElementById('close-cart-btn');
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const checkoutDemoBtn = document.getElementById('checkout-demo-btn');
+
+            function updateCartUI() {
+                cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = `
+                        <div class="text-center py-12 space-y-4">
+                            <p class="font-serif text-xl text-deepForest">Your cart is empty.</p>
+                            <p class="text-xs text-softCharcoal/70">Explore our concept rituals and add items to begin.</p>
+                        </div>
+                    `;
+                    cartSubtotal.textContent = '₹0';
+                    return;
+                }
+
+                let subtotal = 0;
+                cartItemsContainer.innerHTML = '';
+                
+                cart.forEach((item, index) => {
+                    subtotal += item.price * item.quantity;
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'flex items-center space-x-4 pb-4 border-b border-deepForest/10';
+                    itemEl.innerHTML = `
+                        <img src="${item.img}" alt="${item.name}" class="w-16 h-20 object-cover rounded bg-warmIvory" onerror="this.style.display='none'">
+                        <div class="flex-1">
+                            <h4 class="font-serif text-lg text-deepForest">${item.name}</h4>
+                            <span class="text-xs text-softCharcoal/70">₹${item.price}</span>
+                            <div class="flex items-center space-x-3 mt-2">
+                                <button class="decrease-qty text-xs px-2 py-0.5 border border-deepForest/20 rounded" data-index="${index}">-</button>
+                                <span class="text-xs">${item.quantity}</span>
+                                <button class="increase-qty text-xs px-2 py-0.5 border border-deepForest/20 rounded" data-index="${index}">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-item text-deepForest/50 hover:text-deepForest p-2" data-index="${index}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    `;
+                    cartItemsContainer.appendChild(itemEl);
+                });
+
+                cartSubtotal.textContent = `₹${subtotal.toLocaleString()}`;
+                localStorage.setItem('velora_cart', JSON.stringify(cart));
+
+                document.querySelectorAll('.increase-qty').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const idx = e.target.getAttribute('data-index');
+                        cart[idx].quantity++;
+                        updateCartUI();
+                    });
+                });
+                document.querySelectorAll('.decrease-qty').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const idx = e.target.getAttribute('data-index');
+                        if (cart[idx].quantity > 1) {
+                            cart[idx].quantity--;
+                        } else {
+                            cart.splice(idx, 1);
+                        }
+                        updateCartUI();
+                    });
+                });
+                document.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const idx = e.target.closest('button').getAttribute('data-index');
+                        cart.splice(idx, 1);
+                        updateCartUI();
+                    });
+                });
+            }
+
+            function openCart() {
+                cartDrawer.classList.remove('hidden');
+                setTimeout(() => {
+                    cartBackdrop.classList.remove('opacity-0');
+                    cartPanel.classList.remove('translate-x-full');
+                }, 10);
+            }
+
+            function closeCart() {
+                cartBackdrop.classList.add('opacity-0');
+                cartPanel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    cartDrawer.classList.add('hidden');
+                }, 300);
+            }
+
+            cartBtn.addEventListener('click', openCart);
+            closeCartBtn.addEventListener('click', closeCart);
+            cartBackdrop.addEventListener('click', closeCart);
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    const name = btn.getAttribute('data-name');
+                    const price = parseInt(btn.getAttribute('data-price'));
+                    const img = btn.getAttribute('data-img');
+
+                    const existing = cart.find(item => item.id === id);
+                    if (existing) {
+                        existing.quantity++;
+                    } else {
+                        cart.push({ id, name, price, img, quantity: 1 });
+                    }
+                    updateCartUI();
+                    openCart();
+                });
+            });
+
+            checkoutDemoBtn.addEventListener('click', () => {
+                alert('This is a portfolio design concept by Sites by Subho. Real payment processing is disabled.');
+            });
+
+            updateCartUI();
+
+            const quickViewModal = document.getElementById('quick-view-modal');
+            const modalBackdrop = document.getElementById('modal-backdrop');
+            const modalPanel = document.getElementById('modal-panel');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const modalImg = document.getElementById('modal-img');
+            const modalCategory = document.getElementById('modal-category');
+            const modalName = document.getElementById('modal-name');
+            const modalPrice = document.getElementById('modal-price');
+            const modalDesc = document.getElementById('modal-desc');
+            const modalAddBtn = document.getElementById('modal-add-btn');
+
+            const productsData = {
+                'a': { name: 'FIRST LIGHT', category: 'Cleanse • 150ml', price: 899, img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800', desc: 'A gentle daily cleansing ritual formulated with soothing green tea and botanical extracts to purify without stripping the skin barrier.' },
+                'b': { name: 'DEW THEORY', category: 'Hydrate • 50ml', price: 1299, img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800', desc: 'A lightweight hydration-focused serum that quenches thirsty skin cells and provides lasting, dewy radiance throughout the day.' },
+                'c': { name: 'STILLWATER', category: 'Moisturize • 60ml', price: 1099, img: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&q=80&w=800', desc: 'A daily moisturizer designed around skin comfort, featuring calming squalane and centella for effortless balance.' },
+                'd': { name: 'NIGHT GARDEN', category: 'Nourish • 60ml', price: 1499, img: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=800', desc: 'A rich, nourishing evening skincare ritual that seals in moisture while you rest, supporting overnight barrier recovery.' }
+            };
+
+            document.querySelectorAll('.quick-view-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    const prod = productsData[id];
+                    
+                    modalImg.src = prod.img;
+                    modalImg.alt = prod.name;
+                    modalCategory.textContent = prod.category;
+                    modalName.textContent = prod.name;
+                    modalPrice.textContent = `₹${prod.price}`;
+                    modalDesc.textContent = prod.desc;
+                    modalAddBtn.setAttribute('data-id', id);
+                    modalAddBtn.setAttribute('data-name', prod.name);
+                    modalAddBtn.setAttribute('data-price', prod.price);
+                    modalAddBtn.setAttribute('data-img', prod.img);
+
+                    quickViewModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        modalBackdrop.classList.remove('opacity-0');
+                        modalPanel.classList.remove('scale-95', 'opacity-0');
+                    }, 10);
+                });
+            });
+
+            function closeModal() {
+                modalBackdrop.classList.add('opacity-0');
+                modalPanel.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    quickViewModal.classList.add('hidden');
+                }, 300);
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalBackdrop.addEventListener('click', closeModal);
+
+            modalAddBtn.addEventListener('click', () => {
+                const id = modalAddBtn.getAttribute('data-id');
+                const name = modalAddBtn.getAttribute('data-name');
+                const price = parseInt(modalAddBtn.getAttribute('data-price'));
+                const img = modalAddBtn.getAttribute('data-img');
+
+                const existing = cart.find(item => item.id === id);
+                if (existing) {
+                    existing.quantity++;
+                } else {
+                    cart.push({ id, name, price, img, quantity: 1 });
+                }
+                updateCartUI();
+                closeModal();
+                openCart();
+            });
+
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const quizSteps = document.querySelectorAll('.quiz-step');
+            const quizResult = document.getElementById('quiz-result');
+            const restartQuizBtn = document.getElementById('restart-quiz-btn');
+            const askGuideAboutQuiz = document.getElementById('ask-guide-about-quiz');
+
+            let quizAnswers = { focus: '', steps: '', timing: '' };
+
+            quizOptions.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const q = btn.getAttribute('data-question');
+                    const val = btn.getAttribute('data-value');
+                    quizAnswers[q] = val;
+
+                    if (q === 'focus') {
+                        document.getElementById('quiz-step-1').classList.add('hidden');
+                        document.getElementById('quiz-step-2').classList.remove('hidden');
+                    } else if (q === 'steps') {
+                        document.getElementById('quiz-step-2').classList.add('hidden');
+                        document.getElementById('quiz-step-3').classList.remove('hidden');
+                    } else if (q === 'timing') {
+                        document.getElementById('quiz-step-3').classList.add('hidden');
+                        
+                        const titleEl = document.getElementById('result-title');
+                        const descEl = document.getElementById('result-desc');
+                        
+                        titleEl.textContent = `Your ${quizAnswers.focus} Routine (${quizAnswers.steps})`;
+                        descEl.textContent = `Tailored for ${quizAnswers.timing.toLowerCase()} use, focusing on ${quizAnswers.focus.toLowerCase()}. We recommend pairing FIRST LIGHT Gentle Cleanser with ${quizAnswers.focus === 'Hydration' ? 'DEW THEORY Hydration Serum' : 'STILLWATER Barrier Moisturizer'} for optimal balance.`;
+                        
+                        quizResult.classList.remove('hidden');
+                    }
+                });
+            });
+
+            restartQuizBtn.addEventListener('click', () => {
+                quizAnswers = { focus: '', steps: '', timing: '' };
+                quizResult.classList.add('hidden');
+                document.getElementById('quiz-step-1').classList.remove('hidden');
+            });
+
+            const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+            const chatbotPanel = document.getElementById('chatbot-panel');
+            const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+            const chatbotForm = document.getElementById('chatbot-form');
+            const chatbotInput = document.getElementById('chatbot-input');
+            const chatbotMessages = document.getElementById('chatbot-messages');
+            const suggestionChips = document.querySelectorAll('.suggestion-chip');
+
+            function toggleChatbot() {
+                const isHidden = chatbotPanel.classList.contains('hidden');
+                if (isHidden) {
+                    chatbotPanel.classList.remove('hidden');
+                    setTimeout(() => {
+                        chatbotPanel.classList.remove('translate-y-4', 'opacity-0');
+                    }, 10);
+                } else {
+                    chatbotPanel.classList.add('translate-y-4', 'opacity-0');
+                    setTimeout(() => {
+                        chatbotPanel.classList.add('hidden');
+                    }, 300);
+                }
+            }
+
+            chatbotToggleBtn.addEventListener('click', toggleChatbot);
+            chatbotCloseBtn.addEventListener('click', toggleChatbot);
+
+            askGuideAboutQuiz.addEventListener('click', () => {
+                toggleChatbot();
+                addMessage(`Can you help me build a ${quizAnswers.steps || 'simple'} routine for ${quizAnswers.focus || 'hydration'} during the ${quizAnswers.timing || 'day'}?`, 'user');
+                setTimeout(() => {
+                    addMessage(`Based on your preference for ${quizAnswers.focus || 'hydration'} (${quizAnswers.steps || 'simple'} steps, ${quizAnswers.timing || 'daily'}), I recommend a gentle cleanse followed by our DEW THEORY serum or STILLWATER moisturizer. Remember to patch test and introduce new steps gradually!`, 'bot');
+                }, 600);
+            });
+
+            function addMessage(text, sender) {
+                const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const msgEl = document.createElement('div');
+                msgEl.className = 'flex flex-col space-y-1';
+                
+                if (sender === 'user') {
+                    msgEl.innerHTML = `
+                        <div class="bg-deepForest text-porcelain p-3 rounded-xl rounded-tr-none max-w-[85%] ml-auto leading-relaxed">
+                            ${escapeHTML(text)}
+                        </div>
+                        <span class="text-[9px] text-softCharcoal/50 text-right mr-1">${timeStr}</span>
+                    `;
+                } else {
+                    msgEl.innerHTML = `
+                        <div class="bg-porcelain border border-deepForest/10 p-3 rounded-xl rounded-tl-none max-w-[85%] text-softCharcoal leading-relaxed">
+                            ${escapeHTML(text)}
+                        </div>
+                        <span class="text-[9px] text-softCharcoal/50 ml-1">${timeStr}</span>
+                    `;
+                }
+                
+                chatbotMessages.appendChild(msgEl);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, 
+                    tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+                );
+            }
+
+            function getBotResponse(userText) {
+                const text = userText.toLowerCase();
+                
+                if (text.includes('dry') || text.includes('dryness')) {
+                    return "For dry skin, focus on moisture retention and gentle cleansing. Our STILLWATER moisturizer and NIGHT GARDEN cream provide rich barrier support with squalane and colloidal oat.";
+                } else if (text.includes('oil') || text.includes('oily') || text.includes('acne')) {
+                    return "If your skin produces excess oil, you'll love lightweight hydration like DEW THEORY serum. Avoid harsh stripping cleansers—FIRST LIGHT offers a balanced clean without disrupting your barrier.";
+                } else if (text.includes('sensitiv') || text.includes('red') || text.includes('irritat')) {
+                    return "For sensitive skin, simplicity is key. Look for calming botanical ingredients like centella asiatica and fragrance-free formulas. Always patch-test new products on your inner arm first.";
+                } else if (text.includes('layer') || text.includes('order')) {
+                    return "General product layering rule: Go from thinnest to thickest texture! Start with cleansers, followed by lightweight serums (like DEW THEORY), then moisturizers (like STILLWATER), and finish with SPF during the day.";
+                } else if (text.includes('routine') || text.includes('simple') || text.includes('build')) {
+                    return "A wonderfully simple routine consists of 2 to 3 essential steps:\n1. Gentle morning/evening cleanse (FIRST LIGHT)\n2. Hydrating serum or moisturizer (DEW THEORY or STILLWATER)\n3. Broad-spectrum sunscreen during the day.";
+                } else if (text.includes('price') || text.includes('cost') || text.includes('buy')) {
+                    return "All products shown in this portfolio concept range from ₹899 to ₹1,499. Please note these are fictional concept items created by Sites by Subho.";
+                } else {
+                    return "That is a wonderful question about skincare! While I recommend keeping routines simple and gentle, feel free to ask about dry skin, oiliness, sensitive care, or product layering.";
+                }
+            }
+
+            chatbotForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const text = chatbotInput.value.trim();
+                if (!text) return;
+
+                addMessage(text, 'user');
+                chatbotInput.value = '';
+
+                setTimeout(() => {
+                    const response = getBotResponse(text);
+                    addMessage(response, 'bot');
+                }, 500);
+            });
+
+            suggestionChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const promptText = chip.textContent;
+                    chatbotInput.value = promptText;
+                    chatbotForm.dispatchEvent(new Event('submit'));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
